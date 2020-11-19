@@ -11,11 +11,12 @@ struct MemoryGame<T> {
     
     var cards: Array<Card>
     
-    init(numberOfPairOfCards: Int) {
+    init(numberOfPairOfCards: Int, contentCardFactory: (Int) -> T) {
         self.cards = [Card]()
         
-        for pair in 0..<numberOfPairOfCards {
-            let newCard = Card(isFaceUp: <#T##Bool#>, isMatched: <#T##Bool#>, content: <#T##T#>)
+        for index in 0..<numberOfPairOfCards {
+            let content = contentCardFactory(index)
+            let newCard = Card(isFaceUp: false, isMatched: false, content: content)
             self.cards.append(newCard)
         }
     }

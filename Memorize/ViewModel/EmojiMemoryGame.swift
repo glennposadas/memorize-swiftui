@@ -7,11 +7,18 @@
 
 import SwiftUI
 
+func createCardContent(index: Int) -> String {
+    return "🔥"
+}
+
 class EmojiMemoryGame {
     
     // MARK: - Properties
     
-    private var model: MemoryGame<String>
+    private var model: MemoryGame<String> = MemoryGame<String>(
+        numberOfPairOfCards: 2,
+        contentCardFactory: createCardContent(index:)
+    )
     
     // MARK: - Access to the Model
     
