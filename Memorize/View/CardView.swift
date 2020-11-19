@@ -11,18 +11,18 @@ struct CardView: View {
     
     // MARK: - Properties
     
-    var isFaceUp: Bool = true
+    var card: MemoryGame<String>.Card
     
     // MARK: - Body
     
     var body: some View {
         ZStack {
-            if isFaceUp {
+            if self.card.isFaceUp {
                 RoundedRectangle(cornerRadius: 10.0)
                     .fill(Color.white)
                 RoundedRectangle(cornerRadius: 10.0)
                     .stroke(lineWidth: 3.0)
-                Text("🔥")
+                Text(self.card.content)
             } else {
                 RoundedRectangle(cornerRadius: 10.0)
                     .fill()
@@ -33,7 +33,13 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(isFaceUp: false)
-            .frame(width: 100, height: 100, alignment: .center)
+        CardView(card: MemoryGame<String>.Card(
+            id: 1,
+            isFaceUp: true,
+            isMatched: false,
+            content: "🇵🇭"
+        )
+        )
+        .frame(width: 100, height: 100, alignment: .center)
     }
 }

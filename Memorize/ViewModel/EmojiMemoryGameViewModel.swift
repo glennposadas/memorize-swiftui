@@ -11,12 +11,17 @@ class EmojiMemoryGameViewModel {
     
     // MARK: - Properties
     
-    private lazy var model: MemoryGame<String> = self.createMemoryGame()
+    private var model: MemoryGame<String> = EmojiMemoryGameViewModel.createMemoryGame()
     
     // MARK: - Access to the Model
     
     var cards: Array<MemoryGame<String>.Card> {
         self.model.cards
+    }
+    
+    // MARK: - Init
+    init() {
+        print("init vm")
     }
     
     // MARK: - Intents
@@ -27,7 +32,7 @@ class EmojiMemoryGameViewModel {
     
     // MARK: Functions
     
-    func createMemoryGame() -> MemoryGame<String> {
+    static func createMemoryGame() -> MemoryGame<String> {
         let emojis: [String] = [
             "🔥",
             "😫",
@@ -36,7 +41,7 @@ class EmojiMemoryGameViewModel {
             "🇵🇭"
         ]
         
-        return MemoryGame<String>(numberOfPairOfCards: 2) { index in
+        return MemoryGame<String>(numberOfPairOfCards: emojis.count) { index in
             return emojis[index]
         }
     }

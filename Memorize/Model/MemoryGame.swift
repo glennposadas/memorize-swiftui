@@ -16,18 +16,20 @@ struct MemoryGame<T> {
         
         for index in 0..<numberOfPairOfCards {
             let content = contentCardFactory(index)
-            let newCard = Card(isFaceUp: false, isMatched: false, content: content)
+            
+            let newCard = Card(id: index*2, content: content)
             self.cards.append(newCard)
         }
     }
     
     func choose(_ card: Card) {
-        
+        print("Card chosen: \(card)")
     }
     
-    struct Card {
-        var isFaceUp: Bool
-        var isMatched: Bool
+    struct Card: Identifiable {
+        var id: Int
+        var isFaceUp: Bool = true
+        var isMatched: Bool = false
         var content: T
     }
 }

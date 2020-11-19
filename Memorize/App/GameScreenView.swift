@@ -17,11 +17,11 @@ struct GameScreenView: View {
         
     var body: some View {
         HStack {
-            ForEach(0..<4) { index in
-                CardView(isFaceUp: false)
-                    .onTapGesture(count: 1, perform: {
-                        
-                    })
+            ForEach(self.viewModel.cards) { card in
+                CardView(card: card)
+                    .onTapGesture {
+                        self.viewModel.choose(card)
+                    }
             }
         }
         .padding()
@@ -32,6 +32,6 @@ struct GameScreenView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GameScreenView(viewModel: EmojiMemoryGameViewModel())
+        GameScreenView(viewModel: EmojiMemoryGameViewModel())   
     }
 }
