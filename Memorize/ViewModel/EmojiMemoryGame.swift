@@ -7,18 +7,11 @@
 
 import SwiftUI
 
-func createCardContent(index: Int) -> String {
-    return "🔥"
-}
-
 class EmojiMemoryGame {
     
     // MARK: - Properties
     
-    private var model: MemoryGame<String> = MemoryGame<String>(
-        numberOfPairOfCards: 2,
-        contentCardFactory: createCardContent(index:)
-    )
+    private lazy var model: MemoryGame<String> = self.createMemoryGame()
     
     // MARK: - Access to the Model
     
@@ -33,4 +26,18 @@ class EmojiMemoryGame {
     }
     
     // MARK: Functions
+    
+    func createMemoryGame() -> MemoryGame<String> {
+        let emojis: [String] = [
+            "🔥",
+            "😫",
+            "😡",
+            "💦",
+            "🇵🇭"
+        ]
+        
+        return MemoryGame<String>(numberOfPairOfCards: 2) { index in
+            return emojis[index]
+        }
+    }
 }

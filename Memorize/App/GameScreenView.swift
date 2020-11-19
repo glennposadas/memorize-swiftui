@@ -11,7 +11,10 @@ struct GameScreenView: View {
     
     // MARK: - Properties
     
+    var viewModel: EmojiMemoryGame
+    
     // MARK: - Body
+        
     var body: some View {
         HStack {
             ForEach(0..<4) { index in
@@ -29,6 +32,6 @@ struct GameScreenView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GameScreenView()
+        GameScreenView(viewModel: EmojiMemoryGame())
     }
 }
