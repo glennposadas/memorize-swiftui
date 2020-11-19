@@ -1,5 +1,5 @@
 //
-//  EmojiMemoryGame.swift
+//  EmojiMemoryGameViewModel.swift
 //  Memorize
 //
 //  Created by Glenn Posadas on 11/14/20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class EmojiMemoryGame {
+class EmojiMemoryGameViewModel {
     
     // MARK: - Properties
     

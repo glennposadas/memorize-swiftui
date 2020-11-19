@@ -11,7 +11,7 @@ struct GameScreenView: View {
     
     // MARK: - Properties
     
-    var viewModel: EmojiMemoryGame
+    var viewModel: EmojiMemoryGameViewModel
     
     // MARK: - Body
         
@@ -32,6 +32,6 @@ struct GameScreenView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GameScreenView(viewModel: EmojiMemoryGame())
+        GameScreenView(viewModel: EmojiMemoryGameViewModel())
     }
 }
