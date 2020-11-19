@@ -11,7 +11,7 @@ class EmojiMemoryGameViewModel: ObservableObject {
     
     // MARK: - Properties
     
-    private var model: MemoryGame<String> = EmojiMemoryGameViewModel.createMemoryGame()
+    @Published private var model: MemoryGame<String> = EmojiMemoryGameViewModel.createMemoryGame()
         
     // MARK: - Access to the Model
     

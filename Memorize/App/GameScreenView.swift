@@ -11,7 +11,7 @@ struct GameScreenView: View {
     
     // MARK: - Properties
     
-    var viewModel: EmojiMemoryGameViewModel
+    @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
     // MARK: - Body
         
