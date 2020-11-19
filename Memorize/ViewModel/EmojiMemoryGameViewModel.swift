@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-class EmojiMemoryGameViewModel {
+class EmojiMemoryGameViewModel: ObservableObject {
     
     // MARK: - Properties
     
     private var model: MemoryGame<String> = EmojiMemoryGameViewModel.createMemoryGame()
-    
+        
     // MARK: - Access to the Model
     
     var cards: Array<MemoryGame<String>.Card> {
@@ -20,6 +20,7 @@ class EmojiMemoryGameViewModel {
     }
     
     // MARK: - Init
+    
     init() {
         print("init vm")
     }
@@ -27,6 +28,7 @@ class EmojiMemoryGameViewModel {
     // MARK: - Intents
     
     func choose(_ card: MemoryGame<String>.Card) {
+        objectWillChange.send()
         self.model.choose(card)
     }
     
