@@ -16,17 +16,22 @@ struct CardView: View {
     // MARK: - Body
     
     var body: some View {
-        ZStack {
-            if self.card.isFaceUp {
-                RoundedRectangle(cornerRadius: 10.0)
-                    .fill(Color.white)
-                RoundedRectangle(cornerRadius: 10.0)
-                    .stroke(lineWidth: 3.0)
-                Text(self.card.content)
-            } else {
-                RoundedRectangle(cornerRadius: 10.0)
-                    .fill()
+        GeometryReader { reader in
+            ZStack {
+                if self.card.isFaceUp {
+                    RoundedRectangle(cornerRadius: 10.0)
+                        .fill(Color.white)
+                    RoundedRectangle(cornerRadius: 10.0)
+                        .stroke(lineWidth: 3.0)
+                    Text(self.card.content)
+                } else {
+                    RoundedRectangle(cornerRadius: 10.0)
+                        .fill()
+                }
             }
+            .font(
+                Font.system(size: min(reader.size.width, reader.size.height)  * 0.8)
+            )
         }
     }
 }

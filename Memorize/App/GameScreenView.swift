@@ -25,7 +25,7 @@ struct GameScreenView: View {
             }
         }
         .padding()
-        .foregroundColor(.black)
+        .foregroundColor(.orange)
         .font(Font.largeTitle)
     }
 }
