@@ -14,15 +14,13 @@ struct GameScreenView: View {
     @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
     // MARK: - Body
-        
+    
     var body: some View {
-        HStack {
-            ForEach(self.viewModel.cards) { card in
-                CardView(card: card)
-                    .onTapGesture {
-                        self.viewModel.choose(card)
-                    }
-            }
+        Grid(self.viewModel.cards) { card
+            CardView(card: card)
+                .onTapGesture {
+                    self.viewModel.choose(card)
+                }
         }
         .padding()
         .foregroundColor(.orange)
@@ -32,6 +30,6 @@ struct GameScreenView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GameScreenView(viewModel: EmojiMemoryGameViewModel())   
+        GameScreenView(viewModel: EmojiMemoryGameViewModel())
     }
 }
