@@ -17,7 +17,7 @@ struct CardView: View {
     
     let cornerRadius: CGFloat = 10
     let edgeLineWidth: CGFloat = 10
-    let fontScaleFactor: CGFloat = 10
+  let fontScaleFactor: CGFloat = 0.75
     
     // MARK: - Body
     
