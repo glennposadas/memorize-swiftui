@@ -16,7 +16,7 @@ struct GameScreenView: View {
     // MARK: - Body
     
     var body: some View {
-        Grid(self.viewModel.cards) { in card
+        Grid(viewModel.cards) { card in
             CardView(card: card)
                 .onTapGesture {
                     viewModel.choose(card)
