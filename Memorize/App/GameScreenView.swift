@@ -16,10 +16,10 @@ struct GameScreenView: View {
     // MARK: - Body
     
     var body: some View {
-        Grid(self.viewModel.cards) { card
+        Grid(self.viewModel.cards) { in card
             CardView(card: card)
                 .onTapGesture {
-                    self.viewModel.choose(card)
+                    viewModel.choose(card)
                 }
         }
         .padding()

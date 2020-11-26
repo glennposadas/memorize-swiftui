@@ -7,22 +7,35 @@
 
 import SwiftUI
 
-struct Grid<Item, ItemView>: View {
+struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
     
     // MARK: - Properties
     
     var items: [Item]
-    var viewForItem: (item) -> ItemView
+    var viewForItem: (Item) -> ItemView
+    
+    // MARK: - Init
+    
+    init(_ items: [Item], viewForItem: @escaping (Item) -> ItemView) {
+        self.items = items
+        self.viewForItem = viewForItem
+    }
     
     // MARK: - Body
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { geometry in
+            body(for: geometry.size)
+        }
     }
-}
-
-struct Grid_Previews: PreviewProvider {
-    static var previews: some View {
-        Grid()
+    
+    func body(for size: CGSize) -> some View {
+        ForEach(items) { item in
+            body(for: item, in: size)
+        }
     }
-}
+    
+    func body(for item: Item, in size: CGSize) -> some View {
+        viewForItem(item)
+    }
+ }
