@@ -12,13 +12,13 @@ struct MemoryGame<T> {
     var cards: Array<Card>
     
     init(numberOfPairOfCards: Int, contentCardFactory: (Int) -> T) {
-        self.cards = [Card]()
+        cards = [Card]()
         
         for index in 0..<numberOfPairOfCards {
             let content = contentCardFactory(index)
             
             let newCard = Card(id: index*2, content: content)
-            self.cards.append(newCard)
+            cards.append(newCard)
         }
     }
     

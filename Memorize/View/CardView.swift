@@ -17,12 +17,12 @@ struct CardView: View {
     
     let cornerRadius: CGFloat = 10
     let edgeLineWidth: CGFloat = 10
-  let fontScaleFactor: CGFloat = 0.75
+    let fontScaleFactor: CGFloat = 0.75
     
     // MARK: - Body
     
     var body: some View {
-        GeometryReader { reader in
+        GeometryReader { geometry in
             ZStack {
                 if self.card.isFaceUp {
                     RoundedRectangle(cornerRadius: self.cornerRadius)
@@ -36,7 +36,7 @@ struct CardView: View {
                 }
             }
             .font(
-                Font.system(size: min(reader.size.width, reader.size.height)  * self.fontScaleFactor)
+                Font.system(size: min(geometry.size.width, geometry.size.height)  * self.fontScaleFactor)
             )
         }
     }
