@@ -38,6 +38,11 @@ class GameViewModel: ObservableObject {
         let emojis: [String] = [
             "🔥",
             "😫",
+            "💦",
+            "🔥",
+            "😫",
+            "😡",
+            "🇵🇭",
             "😡",
             "💦",
             "🇵🇭"
