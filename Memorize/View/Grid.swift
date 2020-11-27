@@ -36,19 +36,9 @@ struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
     }
     
     private func body(for item: Item, in layout: GridLayout) -> some View {
-        let index = self.index(of: item)
+        let index = items.firstIndex(matching: item)
         return viewForItem(item)
             .frame(width: layout.itemSize.width, height: layout.itemSize.height)
             .position(layout.location(ofItemAt: index))
-    }
-    
-    private func index(of item: Item) -> Int {
-        for (index, currentItem) in items.enumerated() {
-            if item.id == currentItem.id {
-                return index
-            }
-        }
-        
-        return -1
     }
  }
