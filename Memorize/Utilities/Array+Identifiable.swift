@@ -8,13 +8,13 @@
 import Foundation
 
 extension Array where Element: Identifiable {
-    func firstIndex(matching: Element) -> Int {
+    func firstIndex(matching: Element) -> Int? {
         for (index, currentItem) in self.enumerated() {
             if matching.id == currentItem.id {
                 return index
             }
         }
         
-        return -1
+        return .none
     }
 }
