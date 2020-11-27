@@ -1,5 +1,5 @@
 //
-//  EmojiMemoryGameViewModel.swift
+//  GameViewModel.swift
 //  Memorize
 //
 //  Created by Glenn Posadas on 11/14/20.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-class EmojiMemoryGameViewModel: ObservableObject {
+class GameViewModel: ObservableObject {
     
     // MARK: - Properties
     
-    @Published private var model: MemoryGame<String> = EmojiMemoryGameViewModel.createMemoryGame()
+    @Published private var model: MemoryGame<String> = GameViewModel.createMemoryGame()
         
     // MARK: - Access to the Model
     
