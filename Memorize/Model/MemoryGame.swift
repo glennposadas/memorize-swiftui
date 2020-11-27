@@ -12,7 +12,26 @@ struct MemoryGame<T: Equatable> {
     // MARK: - Properties
     
     var cards: Array<Card>
-    var indexOfTheOneAndOnlyFaceUpCard: Int?
+    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+        get {
+           var faceUpCardIndices = [Int]()
+            for index in cards.indices {
+                if cards[index].isFaceUp {
+                    faceUpCardIndices.append(index)
+                }
+            }
+            
+            if faceUpCardIndices.count == 1 {
+                return faceUpCardIndices.first
+            } else {
+                return nil
+            }
+        } set {
+            for index in cards.indices {
+                cards[index].isFaceUp = index == newValue
+            }
+        }
+    }
     
     // MARK: - Functions
     // MARK: Init
@@ -39,16 +58,11 @@ struct MemoryGame<T: Equatable> {
                     cards[potentialMatchIndex].isMatched = true
                 }
                 
-                indexOfTheOneAndOnlyFaceUpCard = nil
+                cards[chosenIndex].isFaceUp = true
+
             } else {
-                for index in cards.indices {
-                    cards[index].isFaceUp = false
-                }
-                
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
-            
-            cards[chosenIndex].isFaceUp = true
         }
     }
 
