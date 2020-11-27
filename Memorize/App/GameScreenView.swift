@@ -11,7 +11,7 @@ struct GameScreenView: View {
     
     // MARK: - Properties
     
-    @ObservedObject var viewModel: EmojiMemoryGameViewModel
+    @ObservedObject var viewModel: GameViewModel
     
     // MARK: - Body
     
@@ -21,6 +21,7 @@ struct GameScreenView: View {
                 .onTapGesture {
                     viewModel.choose(card)
                 }
+                .padding(5)
         }
         .padding()
         .foregroundColor(.orange)
@@ -30,6 +31,6 @@ struct GameScreenView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GameScreenView(viewModel: EmojiMemoryGameViewModel())
+        GameScreenView(viewModel: GameViewModel())
     }
 }
